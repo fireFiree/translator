@@ -6,12 +6,15 @@
 </template>
 
 <script>
-import TheHeader from '@/components/TheHeader'
+import TheHeader from '@/layout/TheHeader'
 
 export default {
   name: 'App',
   components: {
     TheHeader
+  },
+  beforeCreate () {
+    this.$store.dispatch('authorize')
   }
 }
 </script>

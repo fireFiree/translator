@@ -1,9 +1,9 @@
 <template>
   <div class="container">
-    <h1 class="text-center">Sign Up</h1>
-    <form @submit.prevent="register" class="form-signin">
+    <h1 class="text-center">Sign In</h1>
+    <form @submit.prevent="signIn" class="form-signin">
       <div class="form-label-group">
-        <input type="text" id="inputUserName" class="form-control" v-model="userName" placeholder="Login" required autofocus>
+        <input type="text" id="inputUserName" class="form-control" v-model="username" placeholder="Login" required autofocus>
         <label for="inputUserName">Login</label>
       </div>
 
@@ -11,7 +11,7 @@
         <input type="password" id="inputPassword" class="form-control" v-model="password" placeholder="Password" required>
         <label for="inputPassword" >Password</label>
       </div>
-      <button class="btn btn-lg btn-primary btn-block"  type="submit">Sign up</button>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
     </form>
   </div>
 </template>
@@ -20,19 +20,21 @@
 export default {
   data () {
     return {
-      userName: '',
+      username: '',
       password: ''
     }
   },
   methods: {
-    register () {
-      console.log('Registrated')
+    signIn () {
+      this.$store.dispatch('login', {username: this.username, password: this.password})
+      this.username = ''
+      this.password = ''
     }
   }
 }
 </script>
 
-<style>
+<style scoped>
   .form-signin {
     width: 100%;
     max-width: 420px;

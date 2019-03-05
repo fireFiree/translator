@@ -1,11 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
-import Login from '@/pages/Login'
-import Registration from '@/pages/Registration'
-import WordGroups from '@/pages/WordGroups'
-import WordGroupItem from '@/pages/WordGroupItem'
-import Test from '@/pages/Test'
+import Login from '@/pages/PageLogin'
+import Registration from '@/pages/PageRegistration'
+import WordGroups from '@/pages/PageWordGroups'
+import WordGroupItem from '@/pages/PageWordGroupItem'
+import Test from '@/pages/PageTest'
 
 Vue.use(Router)
 
@@ -13,8 +12,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: 'Words',
+      component: WordGroups
     },
     {
       path: '/login',
@@ -30,11 +29,7 @@ export default new Router({
       path: '/wordGroup',
       name: 'WordGroup',
       component: WordGroupItem
-    },
-    {
-      path: '/words',
-      name: 'Words',
-      component: WordGroups
+      // props: true
     },
     {
       path: '/test',

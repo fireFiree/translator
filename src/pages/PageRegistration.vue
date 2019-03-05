@@ -1,9 +1,9 @@
 <template>
   <div class="container">
-    <h1 class="text-center">Sign In</h1>
-    <form @submit.prevent="signIn" class="form-signin">
+    <h1 class="text-center">Registration</h1>
+    <form @submit.prevent="register" class="form-signin">
       <div class="form-label-group">
-        <input type="text" id="inputUserName" class="form-control" v-model="userName" placeholder="Login" required autofocus>
+        <input type="text" id="inputUserName" class="form-control" v-model="username" placeholder="Login" required autofocus>
         <label for="inputUserName">Login</label>
       </div>
 
@@ -11,7 +11,7 @@
         <input type="password" id="inputPassword" class="form-control" v-model="password" placeholder="Password" required>
         <label for="inputPassword" >Password</label>
       </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      <button class="btn btn-lg btn-primary btn-block" @click="register" type="submit">Sign up</button>
     </form>
   </div>
 </template>
@@ -20,24 +20,21 @@
 export default {
   data () {
     return {
-      userName: '',
+      username: '',
       password: ''
     }
   },
   methods: {
-    signIn () {
-      this.$store.dispatch('signIn', {userName: this.userName, password: this.password})
-      this.userName = ''
+    register () {
+      this.$store.dispatch('register', {username: this.username, password: this.password})
+      this.username = ''
       this.password = ''
-      this.$router.push({
-        path: '/words'
-      })
     }
   }
 }
 </script>
 
-<style scoped>
+<style>
   .form-signin {
     width: 100%;
     max-width: 420px;

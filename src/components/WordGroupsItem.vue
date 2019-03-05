@@ -10,10 +10,16 @@
 
 <script>
 export default {
+  /* props: {
+    id: {
+      type: String,
+      require: true
+    }
+  }, */
   methods: {
     showWords () {
       this.$router.push({
-        path: 'wordGroup'
+        name: 'WordGroup'
       })
     }
   },

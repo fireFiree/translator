@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <div class="col-lg-12">
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
       <div v-if="!editingGroupDescription">
         <h3>{{wordGroup.name}}</h3>
         <p class="text-justify">{{wordGroup.description}}</p>
@@ -18,7 +18,7 @@
       </div>
       <h4 class="text-center ">Words</h4>
       <WordsList :words="words"/>
-      <button class="btn btn-success">Test</button>
+      <button @click="openTest" class="btn btn-success">Test</button>
     </div>
   </div>
 </template>
@@ -65,6 +65,9 @@ export default {
       this.wordGroup.name = this.editingGroupDescription.name
       this.wordGroup.description = this.editingGroupDescription.description
       this.editingGroupDescription = null
+    },
+    openTest () {
+      this.$router.push('/test')
     }
   }
   /* props: {

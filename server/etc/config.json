@@ -1,0 +1,9 @@
+{
+  "serverPort": 8081,
+  "db":{
+      "name": "translatordb",
+      "host": "localhost",
+      "port": 27017
+  },
+  "secret": "translatorVue"
+}
